@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;/* Replace 'path/to/your/image.jpg' with the actual path to your image file */
+            background-size: cover;
+            background-image: url('/media/Kidney_bg.jpg');
+            height: 100vh;
+            width: 100%; 
+            position: relative;
+            /* background-color: #004855; */
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-top: 50px;
+            color: #007bff;
+        }
+
+        .button {
+            display: inline-block;
+            font-size: 24px;
+            padding: 15px 30px;
+            margin: 20px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        #upload-btn {
+            background-color: #28a745;
+            color: white;
+        }
+
+        #monitoring-btn {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .description {
+            font-size: 18px;
+            margin-top: 20px;
+            color: #ffffff;
+        }
+
+        .image-container {
+            margin-top: 30px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .chatbot-wrapper {
+            margin-top: 50px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color:#004855;
+            color: white;
+        }
+
+        .chatbot-messages {
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .chatbot-input {
+            display: flex;
+            align-items: center;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 8px;
+            margin-right: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .chatbot-input button {
+            padding: 8px 20px;
+            border-radius: 4px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .chatbot-input button:hover {
+            background-color: #0056b3;
+        }
+        .chatbot-wrapper {
+            width: 50%;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .chatbot-messages {
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .chatbot-input {
+            display: flex;
+            align-items: center;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 8px;
+            margin-right: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .chatbot-input button {
+            padding: 8px 20px;
+            border-radius: 4px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .chatbot-input button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    
+</head>
+<body>
+    {% include 'navbar.html' %}
+    {% if messages %}
+        <div style="background-color: #d4edda; border-color: #c3e6cb; color: #155724; padding: 15px; margin-bottom: 20px;">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    <div class="container">
+        <div class="description">
+            <h3>Kidney Disease ChatBot</h3>
+            <p>
+        </div>
+    </div>
+    <div class="container chatbot-wrapper">
+        <div class="chatbot-messages">
+            <!-- Chatbot messages will be displayed here -->
+        </div>
+        <div class="chatbot-input">
+            <input type="text" placeholder="Type a message">
+            <button>Send</button>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+

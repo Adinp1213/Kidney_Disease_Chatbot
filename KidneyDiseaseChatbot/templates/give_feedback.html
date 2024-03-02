@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}Give Feedback{% endblock %}
+
+{% block content %}
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        text-align: left;
+        padding: 8px;
+        
+    }
+    th {
+        background-color: #004855;
+        color: white;
+        font-size: 20px; /* Increase font size for table headers */
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+    td {
+        font-size: 18px; /* Increase font size for table cells */
+        color: white;
+    }
+</style>
+
+
+
+{% if messages %}
+    <div style="background-color: #d4edda; border-color: #c3e6cb; color: #155724; padding: 15px; margin-bottom: 20px;">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </div>
+{% endif %}
+
+
+<h1>Previous Feedback</h1>
+{% if user_feedback %}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Feedback</th>
+                <th>Response</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for feedback in user_feedback %}
+                <tr>
+                    <td>{{ feedback.feedback }}</td>
+                    <td>{% if feedback.response %}{{ feedback.response }}{% else %}No responses yet{% endif %}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p style = "color : white; ">No feedbacks given yet.</p>
+{% endif %}
+
+<form method="post" action = "/give_feedback/" >
+    {% csrf_token %}
+    <div class="form-group">
+        <label style = "color:white;" for="feedback" >Feedback:</label>
+        <textarea class="form-control" id="feedback" name="feedback" rows="3" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit Feedback</button>
+</form>
+{% endblock %}

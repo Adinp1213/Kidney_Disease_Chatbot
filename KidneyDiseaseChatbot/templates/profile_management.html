@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile Details{% endblock %}
+{% block content %}
+<style>
+    #container {
+        height: 800px; /* Set the height */
+        overflow-y: auto; /* Enable vertical scrolling */
+        padding-right: 15px; /* Add some padding to avoid horizontal scrollbar */
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+</style>
+
+
+<div id="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            {% if messages %}
+            <div class="alert alert-success" role="alert">
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div class="card">
+                <div class="card-header">
+                    <h2>Profile Details</h2>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>User ID:</th>
+                                <td>{{ profile.user_id }}</td>
+                            </tr>
+                            <tr>
+                                <th>Age:</th>
+                                <td>{{ profile.age }}</td>
+                            </tr>
+                            <tr>
+                                <th>Gender:</th>
+                                <td>{{ profile.gender }}</td>
+                            </tr>
+                            <tr>
+                                <th>Activity Level:</th>
+                                <td>{{ profile.activity_level }}</td>
+                            </tr>
+                            <tr>
+                                <th>Exercise Frequency:</th>
+                                <td>{{ profile.exercise_frequency }}</td>
+                            </tr>
+                            <tr>
+                                <th>Vegetarian:</th>
+                                <td>{{ profile.vegetarian }}</td>
+                            </tr>
+                            <tr>
+                                <th>Allergies:</th>
+                                <td>{{ profile.allergies }}</td>
+                            </tr>
+                            <tr>
+                                <th>Medical Conditions:</th>
+                                <td>{{ profile.medical_conditions }}</td>
+                            </tr>
+                            <tr>
+                                <th>Medications:</th>
+                                <td>{{ profile.medications }}</td>
+                            </tr>
+                            <tr>
+                                <th>Height:</th>
+                                <td>{{ profile.height }}</td>
+                            </tr>
+                            <tr>
+                                <th>Weight:</th>
+                                <td>{{ profile.weight }}</td>
+                            </tr>
+                            <tr>
+                                <th>Blood Pressure:</th>
+                                <td>{{ profile.blood_pressure }}</td>
+                            </tr>
+                            <tr>
+                                <th>Cholesterol Level:</th>
+                                <td>{{ profile.cholesterol_level }}</td>
+                            </tr>
+                            <tr>
+                                <th>Sleep Duration:</th>
+                                <td>{{ profile.sleep_duration }}</td>
+                            </tr>
+                            <tr>
+                                <th>Sleep Quality:</th>
+                                <td>{{ profile.sleep_quality }}</td>
+                            </tr>
+                            <tr>
+                                <th>Smoking Status:</th>
+                                <td>{{ profile.smoking_status }}</td>
+                            </tr>
+                            <tr>
+                                <th>Alcohol Consumption:</th>
+                                <td>{{ profile.alcohol_consumption }}</td>
+                            </tr>
+                            <tr>
+                                <th>Stress Level:</th>
+                                <td>{{ profile.stress_level }}</td>
+                            </tr>
+                            <tr>
+                                <th>Mental Health Status:</th>
+                                <td>{{ profile.mental_health_status }}</td>
+                            </tr>
+                            <tr>
+                                <th>Health Goals:</th>
+                                <td>{{ profile.health_goals }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="/edit_profile/" class="btn btn-primary">Edit Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}Previous Detection{% endblock %}
+
+{% block content %}
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        text-align: left;
+        padding: 8px;
+        
+    }
+    th {
+        background-color: #004855;
+        color: white;
+        font-size: 20px; /* Increase font size for table headers */
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+    td {
+        font-size: 18px; /* Increase font size for table cells */
+        color: white;
+    }
+</style>
+
+
+
+{% if messages %}
+    <div style="background-color: #d4edda; border-color: #c3e6cb; color: #155724; padding: 15px; margin-bottom: 20px;">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </div>
+{% endif %}
+
+
+<h1>Previous detection</h1>
+{% if data %}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Date and time</th>
+                <th>Detection Result</th>
+                <th>Q/A files</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in data %}
+                <tr>
+                    <td>{{ data.datetime }}</td>
+                    <td>{{ data.detection_result }}</td>
+                    <td><a href="{{ data.input_file.url }}" class="btn btn-primary">View file</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p style = "color : white; ">No detections yet.</p>
+{% endif %}
+
+{% endblock %}

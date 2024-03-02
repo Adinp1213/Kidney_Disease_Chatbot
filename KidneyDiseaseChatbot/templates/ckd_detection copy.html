@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+
+{% block title %}Login Page{% endblock %}
+{% block content %}
+
+<style>
+    .question-container {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .question {
+        margin-bottom: 10px;
+        color: white
+    }
+
+    .answer {
+        margin-bottom: 10px;
+        width: 200px; /* Set width for input */
+    }
+
+    .btn1 {
+        padding: 8px 20px;
+        border: none;
+        border-radius: 4px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+    .next-btn {
+        padding: 5px 10px;
+        margin-top: 5px;
+        border: none;
+        border-radius: 4px;
+        background-color: #28a745;
+        color: #fff;
+        cursor: pointer;
+    }
+    #questions-container {
+        height: 700px; /* Set the height */
+        overflow-y: auto; /* Enable vertical scrolling */
+        padding-right: 15px; /* Add some padding to avoid horizontal scrollbar */
+    }
+</style>
+<h2 style = "color:white ; margin-top: 20px; margin-bottom: 20px;">Chronic Kidney Detection</h2>
+
+
+<form class="questions-form" method="post" action="/submit_answers/">
+    <div id="questions-container">
+        <!-- Questions will be appended here -->
+    </div>
+</form>
+
+<script>
+
+    const questions = ['What is your Blood Pressure?', 
+                    'What is your Specific Gravity?',
+                    'What is your albumin?',
+                    'What is your sugar level?',
+                    'RBCs?',
+                    'Pus cell?',
+                    'Pus cell-clumps?',
+                    'Bacteria?',
+                    'Blood Glucose random?',
+                    'Blood Urea?',
+                    'serum creatinine?',
+                    'Sodium?',
+                    'Potassium?',
+                    'Haemoglobin?',
+                    'Packed cell volume?',
+                    'WBC cell count ?',
+                    'RBC count?',
+                    'Hypertension?',
+                    'diabetes mellitus?',
+                    'coronary artery disease?',
+                    'appetite?',
+                    'peda edema?',
+                    'anemia?',
+                    ];
+    let currentQuestionIndex = 0;
+
+    function nextQuestion() {
+        const questionsContainer = document.getElementById('questions-container');
+        const question = questions[currentQuestionIndex];
+
+        const questionDiv = document.createElement('div');
+        questionDiv.classList.add('question-container');
+
+        const questionText = document.createElement('div');
+        questionText.classList.add('question');
+        questionText.textContent = question;
+        questionDiv.appendChild(questionText);
+
+        const answerInput = document.createElement('input');
+        answerInput.classList.add('answer');
+        answerInput.setAttribute('type', 'text');
+        answerInput.setAttribute('name', `answer_${currentQuestionIndex + 1}`);
+        answerInput.setAttribute('placeholder', 'Your Answer...');
+        answerInput.setAttribute('required', '');
+        questionDiv.appendChild(answerInput);
+
+        const nextButton = document.createElement('button');
+        nextButton.classList.add('next-btn');
+        nextButton.setAttribute('type', 'button');
+        nextButton.textContent = 'Next';
+        nextButton.addEventListener('click', () => {
+            const answerValue = answerInput.value.trim();
+            if (answerValue === '') {
+                alert('Please fill in your answer before proceeding.');
+                return; // Stop further execution if answer is not filled
+            }
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                nextQuestion();
+                questionDiv.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Scroll to the newly added question
+            } else {
+                const submitButton = document.createElement('button');
+                submitButton.classList.add('btn1');
+                submitButton.setAttribute('type', 'submit');
+                submitButton.textContent = 'Submit';
+                questionsContainer.appendChild(submitButton);
+                submitButton.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Scroll to the newly added question
+                // Submit the form if all questions have been answered
+                document.getElementById('questions-form').submit();
+            }
+        });
+        questionDiv.appendChild(nextButton);
+
+        questionsContainer.appendChild(questionDiv);
+        questionDiv.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Scroll to the newly added question
+
+    }
+
+    // Call nextQuestion initially to display the first question
+    nextQuestion();
+</script>
+
+{% endblock %}

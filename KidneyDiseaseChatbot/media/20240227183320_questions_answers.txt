@@ -1,0 +1,48 @@
+Question 0: What is your Age?
+Answer 0: 45.0
+Question 1: What is your Blood Pressure?
+Answer 1: 67.0
+Question 2: What is your Specific Gravity?
+Answer 2: 0.0
+Question 3: What is your albumin?
+Answer 3: 0.0
+Question 4: What is your sugar level?
+Answer 4: 0.0
+Question 5: RBCs Count? 0 if normal, 1 if abnormal
+Answer 5: 0.0
+Question 6: Pus cell? 0 if normal, 1 if abnormal
+Answer 6: 0.0
+Question 7: Pus cell-clumps? 0 if present, 1 if not present
+Answer 7: 0.0
+Question 8: Bacteria? 0 if present, 1 if not present
+Answer 8: 0.0
+Question 9: Blood Glucose random level?
+Answer 9: 0.0
+Question 10: Blood Urea level?
+Answer 10: 0.0
+Question 11: serum creatinine level?
+Answer 11: 0.0
+Question 12: Sodium level?
+Answer 12: 0.0
+Question 13: Potassium level?
+Answer 13: 0.0
+Question 14: Haemoglobin level ?
+Answer 14: 0.0
+Question 15: Packed cell volume?
+Answer 15: 0.0
+Question 16: WBC cell count ?
+Answer 16: 0.0
+Question 17: RBC count?
+Answer 17: 0.0
+Question 18: Do you have Hypertension? 1 if yes, 0 if no
+Answer 18: 0.0
+Question 19: Do you have diabetes mellitus? 1 if yes, 0 if no
+Answer 19: 0.0
+Question 20: Do you have coronary artery disease? 1 if yes, 0 if no
+Answer 20: 1.0
+Question 21: How is your appetite? 1 if good, 0 if poor 
+Answer 21: 0.0
+Question 22: Do you have peda edema? 1 if yes, 0 if no
+Answer 22: 1.0
+Question 23: Are you have anemic? 1 if yes, 0 if no
+Answer 23: 1.0

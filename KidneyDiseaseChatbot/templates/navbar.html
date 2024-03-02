@@ -1,0 +1,56 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto"> <!-- Use mr-auto to push items to the left -->
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/give_feedback">Give Feedback</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/ckd_detection">CKD Detection</a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto">
+            {% if request.session.user_id %}
+                <li class="nav-item">
+                    <span class="navbar-text">
+                        Hi, {{ request.session.username }}
+                    </span>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-link nav-link" id="logoutBtn">Log Out</button>
+                </li>
+            {% else %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Log In
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/login">User</a>
+                        <a class="dropdown-item" href="/login_admin">Admin</a>
+                    </div>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+
+    <script>
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            // Show confirmation dialog
+            var confirmation = confirm('Are you sure you want to log out?');
+    
+            // If user confirms, perform logout action
+            if (confirmation) {
+                window.location.href = '/logout_2';
+            }
+        });
+    </script>
+    
+</nav>
